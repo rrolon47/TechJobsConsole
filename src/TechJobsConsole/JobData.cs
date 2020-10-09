@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -13,7 +14,22 @@ namespace TechJobsConsole
         public static List<Dictionary<string, string>> FindAll()
         {
             LoadData();
-            return AllJobs;
+            return new List<Dictionary<string, string>>(AllJobs);
+            
+
+            //Dictionary<string, string>[] newList = new Dictionary<string, string>[AllJobs.Count];
+            //AllJobs.CopyTo(newList);
+            
+            
+            //testing that it is a deep copy not a shalow copy and the copy does not change the AllJobs property
+            //LoadData();
+            //List<Dictionary<string, string>> copy = new Dictionary<string, string>(AllJobs);
+            //copy[0] = new Dictionary<string, string>();
+            //copy[0].Add("hello", "hi");
+            //Console.WriteLine(AllJobs[0].ContainsKey("hello"));
+            //return copy;
+
+
         }
 
         /*
